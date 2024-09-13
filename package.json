@@ -1,0 +1,43 @@
+{
+  "name": "ak-automated-uploader",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run build-code && npm run build-bundle",
+    "build-code": "tsc",
+    "build-bundle": "esbuild build/main.js --sourcemap --bundle --outfile=dist/main.cjs --platform=node --format=cjs --external:@nodegui/nodegui \"--external:nodegui-plugin-*\" --external:mediainfo.js",
+    "clean": "rimraf build dist tmp-jam-pack-nodegui",
+    "package": "jam-pack-nodegui --config packaging/jam-pack-nodegui.json",
+    "run": "qode dist/main.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sedwards2009/nodegui-simple-starter.git"
+  },
+  "keywords": [
+    "nodegui"
+  ],
+  "author": "Simon Edwards",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sedwards2009/nodegui-simple-starter/issues"
+  },
+  "homepage": "https://github.com/sedwards2009/nodegui-simple-starter#readme",
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "esbuild": "^0.23.1",
+    "jam-pack-nodegui": "^0.19.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@nodegui/nodegui": "^0.67.0",
+    "iso-639-2": "^3.0.2",
+    "mediainfo.js": "^0.3.2",
+    "node-fetch-cookies": "^2.1.1",
+    "nt": "^0.7.1",
+    "open": "^10.1.0",
+    "p-queue": "^8.0.1",
+    "source-map-support": "^0.5.21"
+  }
+}
