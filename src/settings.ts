@@ -14,12 +14,12 @@ export interface SettingsList {
 export interface TrackerSettings {
   name: string;
   announce: string;
+  imageHosts: string[];
+  afterUpload: string;
   username?: string;
   password?: string;
   apiKey?: string;
-  imageHosts: string[];
-  afterUpload: string;
-  defaultDescription: string;
+  defaultDescription?: string;
 }
 
 export interface ImageHostSettings {
@@ -102,7 +102,6 @@ export default class Settings {
       announce: '',
       imageHosts: [],
       afterUpload: '',
-      defaultDescription: '',
     }
 
     for (const field of fields) {
@@ -200,7 +199,6 @@ export default class Settings {
       announce: '',
       imageHosts: [],
       afterUpload: '',
-      defaultDescription: '',
     }
 
     for (const key in defaultSettings) {

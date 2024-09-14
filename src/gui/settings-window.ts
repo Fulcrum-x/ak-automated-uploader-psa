@@ -464,7 +464,6 @@ export default class SettingsWindow {
     }
 
     if (parent.startsWith('trackers/')) {
-      this.addField(layout, { type: 'multiline', id: 'defaultDescription', label: 'Default description' }, parent);
       this.addField(layout, { type: 'imageHosts', id: 'imageHosts', label: 'Image host order' }, parent);
       this.addField(layout, { type: 'afterUpload', id: 'afterUpload', label: 'After upload' }, parent);
     }
@@ -728,7 +727,6 @@ export default class SettingsWindow {
         name: tracker,
         announce: '',
         afterUpload: '',
-        defaultDescription: '',
         imageHosts: [],
       };
 

@@ -62,6 +62,12 @@ export const settings: Field[] = [
     label: 'API key',
     type: 'password',
     description: 'Your API key can be found in your profile, under Settings, API Key.',
+  },
+  {
+    id: 'defaultDescription',
+    label: 'Default description',
+    type: 'multiline',
+    default: '{screenshots 350}[url={link}][img={width}]{image}[/img][/url]{/screenshots}',
   }
 ];
 
@@ -105,7 +111,7 @@ export default class Aither extends Tracker {
       tvdb: '',
       mal: '',
       keywords: '',
-      description: config.defaultDescription,
+      description: config.defaultDescription || '',
       mediainfo: '{mediainfo fulltext}',
       bdinfo: '',
       anonymous: false,

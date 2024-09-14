@@ -10,6 +10,7 @@ export const settings: Field[] = [{
   id: 'apiKey',
   label: 'API key',
   description: 'The Freeimage.host API key is freely accessible on their <a href="https://freeimage.host/page/api">API page</a>.',
+  default: '6d207e02198a847aa98d0a2a901485a5',
 }];
 
 export default class FreeimageHost extends ImageHost {

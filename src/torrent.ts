@@ -246,7 +246,8 @@ export default class Torrent {
           const writeStream = this.torrent.createWriteStream(path) as unknown as WriteStream;
           writeStream.on('error', error => reject(error.message));
           writeStream.on('finish', () => {
-            resolve(path)
+            setTimeout(() => resolve(path), 250);
+            // This setTimeout() is probably unneccessary
           });
 
         }).catch(error => reject(error));

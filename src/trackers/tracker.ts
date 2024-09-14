@@ -439,7 +439,7 @@ export default class Tracker {
 
       let description = data[key];
 
-      let matches = description.match(/{screenshots(?:=([0-9]+))?}(.*?){\/screenshots}/i);
+      let matches = description.match(/{screenshots(?:[= ]([0-9]+))?}(.*?){\/screenshots}/i);
       if (!matches) continue;
       let [match, width, format] = matches;
 
