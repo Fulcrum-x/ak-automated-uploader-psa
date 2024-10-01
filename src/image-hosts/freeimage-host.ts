@@ -71,6 +71,7 @@ export default class FreeimageHost extends ImageHost {
     }
 
     if (data.status_code !== 200) {
+      console.log(data);
       throw Error(`Uploading ${basename(image)} to Freeimage.host failed with error code ${data.status_code}`);
     }
 
