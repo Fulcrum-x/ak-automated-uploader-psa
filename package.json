@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run build-code && npm run build-bundle",
     "build-code": "tsc",
-    "build-bundle": "esbuild build/main.js --sourcemap --bundle --outfile=dist/main.cjs --platform=node --format=cjs --external:@nodegui/nodegui \"--external:nodegui-plugin-*\" --external:mediainfo.js",
+    "build-bundle": "esbuild build/main.js --sourcemap --bundle --outfile=dist/main.cjs --platform=node --format=cjs --external:@nodegui/nodegui \"--external:nodegui-plugin-*\" --external:mediainfo.js --external:node-catbox",
     "clean": "rimraf build dist tmp-jam-pack-nodegui",
     "package": "jam-pack-nodegui --config packaging/jam-pack-nodegui.json",
     "run": "qode dist/main.cjs"
@@ -38,6 +38,7 @@
     "nt": "^0.7.1",
     "open": "^10.1.0",
     "p-queue": "^8.0.1",
+    "sharp": "^0.33.5",
     "source-map-support": "^0.5.21"
   }
 }
