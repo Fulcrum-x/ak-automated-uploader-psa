@@ -29,7 +29,7 @@ export default class Catbox extends ImageHost {
   }
 
   async makeThumb(fullsizePath: string, width: number): Promise<Buffer> {
-    const thumb = await sharp(fullsizePath).resize(width).png().toBuffer();
+    const thumb = await sharp(fullsizePath).resize(width).jpeg().toBuffer();
     return thumb;
   }
 
@@ -41,8 +41,8 @@ export default class Catbox extends ImageHost {
       formData.append('reqtype', 'fileupload');
 
       const imageBuffer: Buffer = image instanceof Buffer ? image : await readFile(image);
-      const imageBlob = new Blob([imageBuffer], { type: 'image/png' });
-      const imageFilename = typeof image === 'string' ? basename(image) : 'thumb.png';
+      const imageBlob = new Blob([imageBuffer], { type: image instanceof Buffer ? 'image/jpeg' : 'image/png' });
+      const imageFilename = typeof image === 'string' ? basename(image) : 'thumb.jpg';
 
       formData.append('fileToUpload', imageBlob, imageFilename);
 
