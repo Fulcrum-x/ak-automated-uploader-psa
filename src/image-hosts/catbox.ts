@@ -1,7 +1,7 @@
-import { ImageHostSettings } from "src/settings";
+import { ImageHostSettings } from "../settings";
 import ImageHost, { Image } from "./image-host";
 import sharp from "sharp";
-import { errorString } from "src/util";
+import { errorString } from "../util";
 import { readFile } from "node:fs/promises";
 import { basename } from "node:path";
 
@@ -29,7 +29,7 @@ export default class Catbox extends ImageHost {
   }
 
   async makeThumb(fullsizePath: string, width: number): Promise<Buffer> {
-    const thumb = await sharp(fullsizePath).resize(width).jpeg().toBuffer();
+    const thumb = await sharp(fullsizePath).resize(width).jpeg({ quality: 95 }).toBuffer();
     return thumb;
   }
 
