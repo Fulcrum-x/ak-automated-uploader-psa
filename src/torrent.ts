@@ -94,8 +94,6 @@ export default class Torrent {
     this.contentDirPath = dirPath;
     this.contentSize = size;
 
-    this.create();
-
   }
 
   async cleanup(): Promise<void> {
