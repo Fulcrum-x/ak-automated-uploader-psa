@@ -183,23 +183,44 @@ export default class Torrent {
   }
 
   getPieceSize(fileSize: number): number {
+      // Convert file size thresholds to bytes
+      const _50_MiB = 50 * 1024 * 1024;       // 52,428,800
+      const _150_MiB = 150 * 1024 * 1024;     // 157,286,400
+      const _350_MiB = 350 * 1024 * 1024;     // 367,001,600
+      const _512_MiB = 512 * 1024 * 1024;     // 536,870,912
+      const _1_GiB = 1024 * 1024 * 1024;      // 1,073,741,824
+      const _2_GiB = 2 * 1024 * 1024 * 1024;  // 2,147,483,648
+      const _5_GiB = 5 * 1024 * 1024 * 1024;  // 5,368,709,120
+      const _8_GiB = 8 * 1024 * 1024 * 1024;  // 8,589,934,592
+      const _16_GiB = 16 * 1024 * 1024 * 1024; // 17,179,869,184
+      const _32_GiB = 32 * 1024 * 1024 * 1024; // 34,359,738,368
 
-    let pieceSize = fileSize / MAX_PIECES;
-    let exponent = Math.ceil(Math.log2(pieceSize));
-
-    if (pieceSize > MAX_PIECE_SIZE) {
-      pieceSize = MAX_PIECE_SIZE;
-      exponent = Math.log2(pieceSize);
+      // Return power of 2 exponent based on file size ranges
+      if (fileSize < _50_MiB) {
+        return 15; // 32 KiB = 2^15
+      } else if (fileSize < _150_MiB) {
+        return 16; // 64 KiB = 2^16
+      } else if (fileSize < _350_MiB) {
+        return 17; // 128 KiB = 2^17
+      } else if (fileSize < _512_MiB) {
+        return 18; // 256 KiB = 2^18
+      } else if (fileSize < _1_GiB) {
+        return 19; // 512 KiB = 2^19
+      } else if (fileSize < _2_GiB) {
+        return 20; // 1 MiB = 2^20
+      } else if (fileSize < _5_GiB) {
+        return 21; // 2 MiB = 2^21
+      } else if (fileSize < _8_GiB) {
+        return 22; // 4 MiB = 2^22
+      } else if (fileSize < _16_GiB) {
+        return 23; // 8 MiB = 2^23
+      } else if (fileSize < _32_GiB) {
+        return 24; // 16 MiB = 2^24
+      } else {
+        // For files larger than 32 GiB, cap at 16 MiB piece size
+        return 24; // 16 MiB = 2^24
+      }
     }
-
-    if (pieceSize < MIN_PIECE_SIZE) {
-      pieceSize = MIN_PIECE_SIZE;
-      exponent = Math.log2(pieceSize);
-    }
-
-    return exponent;
-
-  }
 
   onProgress(callback: (percent: number) => void): void {
     this.progressCallbacks.push(callback);
