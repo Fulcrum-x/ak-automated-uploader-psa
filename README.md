@@ -1,5 +1,19 @@
-ak-automated-uploader
+ak-automated-uploader-psa
 =====================
+Modified version of AQTKU's automated uploader with an adjusted piece size for torrent files
+
+| Size Range | Piece Size |
+|------------|------------|
+| 0 - 50 MiB | 32 KiB |
+| 50 MiB - 150 MiB | 64 KiB |
+| 150 MiB - 350 MiB | 128 KiB |
+| 350 MiB - 512 MiB | 256 KiB |
+| 512 MiB - 1024 MiB | 512 KiB |
+| 1 GiB - 2 GiB | 1 MiB |
+| 2 GiB - 5 GiB | 2 MiB |
+| 4 GiB - 8 GiB | 4 MiB |
+| 8 GiB - 16 GiB | 8 MiB |
+| 16 GiB - 32 GiB | 16 MiB |
 
 A [NodeGui](https://docs.nodegui.org) application for uploading torrents to
 Aither (currently) and other trackers (in the future, probably).
