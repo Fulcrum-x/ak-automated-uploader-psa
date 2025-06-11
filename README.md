@@ -1,10 +1,12 @@
 ak-automated-uploader-psa
 =====================
-Modified version of AQTKU's automated uploader with an adjusted piece size for torrent files
 
-| Size Range | Piece Size |
-|------------|------------|
-| 0 - 50 MiB | 32 KiB |
+> [!IMPORTANT]
+> *Modified version of AQTKU's ak-automated-uploader with an adjusted piece size for torrent files*
+
+| *Size Range* | *Piece Size* |
+|-----------: | :-----------|
+| 0 - 50 MiB | 32 KiB  |
 | 50 MiB - 150 MiB | 64 KiB |
 | 150 MiB - 350 MiB | 128 KiB |
 | 350 MiB - 512 MiB | 256 KiB |
