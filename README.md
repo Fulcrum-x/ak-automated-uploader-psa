@@ -2,7 +2,7 @@ ak-automated-uploader-psa
 =====================
 
 > [!IMPORTANT]
-> *Modified version of AQTKU's ak-automated-uploader with an adjusted piece size for torrent files*
+> *Modified version of AQTKU's [ak-automated-uploader](https://github.com/AQTKU/ak-automated-uploader) with an adjusted piece size for torrent files*
 
 | *Size Range* | *Piece Size* |
 |-----------: | :-----------|
