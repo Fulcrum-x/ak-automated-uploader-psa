@@ -15,7 +15,7 @@ ak-automated-uploader-psa
 | 2 GiB - 5 GiB | 2 MiB |
 | 4 GiB - 8 GiB | 4 MiB |
 | 8 GiB - 16 GiB | 8 MiB |
-| 16 GiB - 32 GiB | 16 MiB |
+| > 16 GiB | 16 MiB |
 
 A [NodeGui](https://docs.nodegui.org) application for uploading torrents to
 Aither (currently) and other trackers (in the future, probably).
